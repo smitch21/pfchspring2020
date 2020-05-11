@@ -21,4 +21,7 @@ with open('harvard_processed.csv', mode='w', newline='') as output:
                 m = p.search(creation_date)
                 if not m is None and m.group(0).isnumeric():
                     creation_date = m.group(0)
-                    harvard_writer.writerow([work['objectid'], work['accessionyear'], creation_date, work['culture'], work['division'], work['classification']])
+                    try:
+                        harvard_writer.writerow([work['objectid'], work['accessionyear'], creation_date, work['culture'], work['division'], work['classification']])
+                    except:
+                        pass
